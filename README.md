@@ -3,19 +3,15 @@ BitPay Demo for TabConf 2019 using Create React App, Material-UI, and Bitcore-No
 
 How to use Bitcoin-node's sockets and API endpoints to create a payment notification system.
 
-## Requirements
-
-Node.js
-
-MongoDB
-
-Bitcore-node
-
-Bitcoin-Core Client
-
 ## Prerequisites 
 
+[Node.js](https://nodejs.org/en/download/)
+
+[MongoDB Installed](https://www.mongodb.com/download-center?jmp=nav)
+
 [Set up Bitcore-Node](https://github.com/bitpay/bitcore/blob/master/packages/bitcore-node/docs/wallet-guide.md)
+
+[Download Bitcoin-Core Client](https://bitcoin.org/en/download)
 
 ## Getting Started
 
