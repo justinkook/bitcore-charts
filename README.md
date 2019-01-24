@@ -9,6 +9,8 @@ Node.js
 
 MongoDB
 
+Bitcore-node
+
 Bitcoin-Core Client
 
 ## Prerequisites 
