@@ -215,7 +215,7 @@ function MediaControlCard(props) {
 ## Import MediaControlCard inside App.js
 
 ```
-import MediaControlCard from './components/BalanceCard';
+import MediaControlCard from './BalanceCard';
 ```
 Add our new MediaControlCard component in our render function of App component.
 Then pass the balance on state to MediaControlCard component as a prop.
