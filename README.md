@@ -185,7 +185,13 @@ componentDidMount = () => {
 
 **Using axios, call a GET request to get the balance of an address. Then update the balance in state using setState().**
 
-> Change {your-address-here} to valid address.
+To get your address in Bitcoin-core -> debug console
+
+```
+getaccountaddress ""
+```
+
+> Change {your-address-here} to the account address.
 
 ```
 handleGetBalance = () => {
