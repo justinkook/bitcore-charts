@@ -23,15 +23,15 @@ npm install -g create-react-app
 
 NPM packages used:
 
-* @material-ui/core - For Material-UI components
+* **@material-ui/core** - *For Material-UI components*
 
-* @material-ui/icons - Icons from Material-UI
+* **@material-ui/icons** - *Icons from Material-UI*
 
-* notistack - Stacked snackbars
+* **notistack** - *Stacked snackbars*
 
-* axios - to GET Bitcore-node APIs
+* **axios** - *To GET Bitcore-node APIs*
 
-* socket.io-client - To use Bitcore-node sockets
+* **socket.io-client** - *To use Bitcore-node sockets*
 
 **Create a create-react-app called bitpay-demo and install the npm packages above**
 
