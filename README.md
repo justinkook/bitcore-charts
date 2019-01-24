@@ -6,7 +6,9 @@ How to use Bitcoin-node's sockets and API endpoints to create a payment notifica
 ## Requirements
 
 Node.js
+
 MongoDB
+
 Bitcoin-Core Client
 
 ## Prerequisites 
@@ -23,11 +25,15 @@ npm install -g create-react-app
 
 NPM packages used:
 
-@material-ui/core - For Material-UI components
-@material-ui/icons - Icons from Material-UI
-notistack - Stacked snackbars
-axios - to GET Bitcore-node APIs
-socket.io-client - To use Bitcore-node sockets
+* @material-ui/core - For Material-UI components
+
+* @material-ui/icons - Icons from Material-UI
+
+* notistack - Stacked snackbars
+
+* axios - to GET Bitcore-node APIs
+
+* socket.io-client - To use Bitcore-node sockets
 
 ```
 create-react-app bitpay-demo
