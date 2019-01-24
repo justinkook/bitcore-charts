@@ -83,7 +83,7 @@ import IntegrationNotistack from './App';
 ReactDOM.render(<IntegrationNotistack />, document.getElementById('root'));
 ```
 
-## Import the additional dependencies
+## Import the additional dependencies in App.js
 
 ```
 import axios from 'axios';
@@ -129,6 +129,8 @@ componentDidMount = () => {
 
 **Next create a function called handleBlockEvent to get a block object from the Bitcore-node socket when a block is generated. The socket event name is 'block'.**
 
+> Update the message in state to the block reward recieved using setState() function, then call the handleClickVariant function to trigger the notification.
+
 ```
 handleBlockEvent = () => {
     socket.on('block', block => {
@@ -138,8 +140,6 @@ handleBlockEvent = () => {
     })
 }
 ```
-
-**Update the message in state to the block reward recieved using setState() function, then call the handleClickVariant function to trigger the notification.**
 
 **Try to generate some blocks in the __Bitcoin Core debug console__ to see the notification!**
 
