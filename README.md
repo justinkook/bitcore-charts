@@ -183,6 +183,54 @@ componentDidMount = () => {
 
 ## Using Bitcore-node API
 
+We are going to create a card component that displays the balance of an address.
+
+Make a new component file called BalanceCard.js inside src folder.
+
+[Get MediaControlCard component from @Material-UI](https://material-ui.com/demos/cards/#ui-controls)
+
+Copy the MediaControlCard component code into BalanceCard.js, then customize the card to include a dynamic balance.
+
+```
+function MediaControlCard(props) {
+  const { classes, theme, balance } = props;
+
+  return (
+    <Card className={classes.card}>
+      <div className={classes.details}>
+        <CardContent className={classes.content}>
+          <Typography component="h5" variant="h5">
+            My Address Balance
+          </Typography>
+          <Typography variant="subtitle1" color="textSecondary">
+            {`${balance} BTC`}
+          </Typography>
+        </CardContent>
+      </div>
+    </Card>
+  );
+}
+```
+
+## Import MediaControlCard inside App.js
+
+```
+import MediaControlCard from './components/BalanceCard';
+```
+Add our new MediaControlCard component in our render function of App component.
+Then pass the balance on state to MediaControlCard component as a prop.
+
+```
+render() {
+    return (
+      <React.Fragment>
+        <Button onClick={this.handleClickVariant('success')}>Generate a Block on Bitcore RegTest!</Button>
+        <MediaControlCard balance={this.state.balance} />
+      </React.Fragment>
+    );
+  }
+```
+
 **Using axios, call a GET request to get the balance of an address. Then update the balance in state using setState().**
 
 To get your address in Bitcoin-core -> debug console
@@ -202,3 +250,49 @@ handleGetBalance = () => {
   }
 ```
 
+**Add this.getBalance() in componentDidMount, handleTxEvent, and handleBlockEvent.**
+
+```
+componentDidMount = () => {
+    socket.on('connect', () => {
+        console.log('Connected to socket');
+        socket.emit('room', '/BTC/regtest/inv');
+        this.handleGetBalance();
+        this.handleBlockEvent();
+        this.handleTxEvent();
+        });
+  }
+
+  handleBlockEvent = () => {
+    socket.on('block', payload => {
+            let message = `Recieved Block Reward ${payload.reward/100000000} BTC at ${new Date(payload.time).toLocaleString()}`;
+            this.setState({message: message});
+            this.handleClickVariant('success')();
+            this.handleGetBalance();
+        })
+  }
+
+  handleTxEvent = () => {
+    socket.on('tx', payload => {
+      let message = `Fee of -${payload.fee/100000000} BTC at ${new Date(payload.blockTimeNormalized).toLocaleString()}`;
+      this.setState({message: message});
+      this.handleClickVariant('error')();
+      message = `Recieved ${payload.value/100000000} BTC at ${new Date(payload.blockTimeNormalized).toLocaleString()}`;
+      this.setState({message: message});
+      this.handleClickVariant('success')();
+      this.handleGetBalance();
+    })
+  }
+```
+
+**Finally a working card with a balance!**
+
+Check block, balance, or transaction information by running Insight - Bitcore's blockchain explorer.
+
+Inside bitcore/packages/insight-previous folder run
+
+```
+npm start
+``
+
+Thanks for reading!
