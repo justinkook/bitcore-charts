@@ -34,6 +34,32 @@ create-react-app bitpay-demo
 yarn add @material-ui/core @material-ui/icons notistack axios socket.io-client
 ```
 
+**Add proxy settings to connect to Bitcore Node and change start script PORT=3006 in package.json**
+
+```
+{
+  "name": "bitcore-charts",
+  "version": "0.1.0",
+  "private": false,
+  "proxy": "http://localhost:3000",
+  "dependencies": {
+    "@material-ui/core": "^3.9.0",
+    "@material-ui/icons": "^3.0.2",
+    "axios": "^0.18.0",
+    "notistack": "^0.4.1",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0",
+    "react-scripts": "2.1.3",
+    "socket.io-client": "^2.2.0"
+  },
+  "scripts": {
+    "start": "PORT=3006 react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+```
+
 **Delete all the files inside src folder except index.js and App.js.**
 
 **We are going to use Material-UI component demos to quickly make a nice notification system.**
@@ -42,6 +68,16 @@ yarn add @material-ui/core @material-ui/icons notistack axios socket.io-client
 [Material-UI notistack Snackbar Component](https://material-ui.com/demos/snackbars/#notistack)
 
 **Copy the notistack component into App.js.**
+
+**Update index.js to render IntegrationNotistack component**
+
+```
+import React from 'react';
+import ReactDOM from 'react-dom';
+import IntegrationNotistack from './App';
+
+ReactDOM.render(<IntegrationNotistack />, document.getElementById('root'));
+```
 
 ## Import the additional dependencies
 
