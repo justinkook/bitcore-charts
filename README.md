@@ -33,6 +33,8 @@ NPM packages used:
 
 * socket.io-client - To use Bitcore-node sockets
 
+**Create a create-react-app called bitpay-demo and install the npm packages above**
+
 ```
 create-react-app bitpay-demo
 yarn add @material-ui/core @material-ui/icons notistack axios socket.io-client
