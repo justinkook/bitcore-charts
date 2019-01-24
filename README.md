@@ -293,6 +293,6 @@ Inside bitcore/packages/insight-previous folder run
 
 ```
 npm start
-``
+```
 
 Thanks for reading!
