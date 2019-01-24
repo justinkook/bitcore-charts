@@ -40,7 +40,7 @@ class App extends React.Component {
       this.setState({message: message});
       this.handleClickVariant('success')();
       this.handleGetBalance();
-  })
+    })
   }
 
   handleGetBalance = () => {
@@ -53,13 +53,6 @@ class App extends React.Component {
   handleClickVariant = variant => () => {
     this.props.enqueueSnackbar(this.state.message, { variant });
   };
-
-  componentWillUnmount = () => {
-    this.handleBlockEvent.destroy()
-    this.handleTxEvent.destroy()
-    this.handleClickVariant.destroy()
-    this.handleGetBalance.destroy()
-  }
 
   render() {
     return (
